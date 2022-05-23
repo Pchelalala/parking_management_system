@@ -1,4 +1,7 @@
-package com.company.models;
+package com.company.controller;
+
+import com.company.models.Car;
+import com.company.models.JournalItem;
 
 import java.util.HashMap;
 import java.util.Map;

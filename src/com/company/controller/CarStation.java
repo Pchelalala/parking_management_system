@@ -1,4 +1,7 @@
-package com.company.models;
+package com.company.controller;
+
+import com.company.models.Account;
+import com.company.models.Car;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +24,13 @@ public class CarStation {
 
     public void addCar(Car car){
         journal.addItem(car, true);
-        car.isCarOnStation = true;
+        car.setCarOnStation(true);
         cars.add(car);
     }
 
     public void removeCar(Car car){
         journal.addItem(car, false);
-        car.isCarOnStation = false;
+        car.setCarOnStation(false);
         cars.remove(car);
     }
 

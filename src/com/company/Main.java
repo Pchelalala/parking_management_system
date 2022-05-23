@@ -1,7 +1,7 @@
 package com.company;
 
 import com.company.models.Car;
-import com.company.models.CarStation;
+import com.company.controller.CarStation;
 import com.company.models.Driver;
 
 import java.util.ArrayList;
