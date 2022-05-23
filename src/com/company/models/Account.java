@@ -2,6 +2,7 @@ package com.company.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Account {
     List<Bill> bills = new ArrayList<>();
@@ -10,7 +11,6 @@ public class Account {
         setBills(cars, price);
     }
     private void setBills(List<Car> cars, Integer price){
-        var index = 0;
         for (var item : cars) {
             var fondedBills = bills.stream().filter(billItem -> billItem.driver == item.driver).toList();
             if(!fondedBills.isEmpty()){
@@ -19,14 +19,17 @@ public class Account {
             else {
                 bills.add(new Bill(item.driver, price));
             }
-            index++;
         }
+    }
+
+    public Optional<Bill> getBill(String driverName){
+        return bills.stream().filter(bill -> bill.driver.getName().equals(driverName)).findFirst();
     }
 
     @Override
     public String toString() {
         return "Account{" +
-                "bills=" + bills +
+                "bills = " + bills +
                 '}';
     }
 }

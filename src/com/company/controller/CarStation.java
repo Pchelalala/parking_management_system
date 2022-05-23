@@ -2,7 +2,6 @@ package com.company.controller;
 
 import com.company.models.Account;
 import com.company.models.Car;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,12 @@ public class CarStation {
             addCar(car);
         }
     }
+    public Account calculateAccount(){
+        var account = new Account(cars, price);
+        this.accounts.add(account);
 
+        return account;
+    }
     public void addCar(Car car){
         journal.addItem(car, true);
         car.setCarOnStation(true);
@@ -34,39 +38,11 @@ public class CarStation {
         cars.remove(car);
     }
 
-    public void createAccount(){
-        accounts.add(new Account(cars, price));
-    }
-
     public List<Car> getCars() {
         return cars;
     }
 
-    public void setCars(List<Car> cars) {
-        this.cars = cars;
-    }
-
-    public List<Account> getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
-    }
-
     public Journal getJournal() {
         return journal;
-    }
-
-    public void setJournal(Journal journal) {
-        this.journal = journal;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 }

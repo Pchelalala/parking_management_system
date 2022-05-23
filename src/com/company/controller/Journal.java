@@ -2,32 +2,40 @@ package com.company.controller;
 
 import com.company.models.Car;
 import com.company.models.JournalItem;
-
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Journal {
-    Map<Car, JournalItem> carJournalItemMap = new HashMap<>();
+    List<JournalItem> journalItems = new ArrayList<>();
 
-    public Journal() {
-    }
     public void addItem(Car car, Boolean isEnter){
-        carJournalItemMap.put(car, new JournalItem(isEnter));
-
+        journalItems.add(new JournalItem(isEnter, car));
     }
 
-    public Map<Car, JournalItem> getCarJournalItemMap() {
-        return carJournalItemMap;
+    public List<JournalItem> getCarInfo(String carName){
+        return journalItems.stream()
+                .filter(journalItem ->
+                        journalItem.getCar().getName().equals(carName))
+                .toList();
     }
 
-    public void setCarJournalItemMap(Map<Car, JournalItem> carJournalItemMap) {
-        this.carJournalItemMap = carJournalItemMap;
+    public List<JournalItem> getDriverInfo(String driverName){
+        return journalItems.stream()
+                .filter(journalItem ->
+                        journalItem.getCar().getDriver().getName().equals(driverName))
+                .toList();
+    }
+
+    public List<JournalItem> getJournalItemsByDate(Date end){
+        return journalItems.stream()
+                .filter(journalItem ->
+                        journalItem.getDate().compareTo(end) < 0)
+                .toList();
     }
 
     @Override
     public String toString() {
-        return "Journal{" +
-                "carJournalItemMap=" + carJournalItemMap +
+        return "Journal { " +
+                "journalItems = " + journalItems +
                 '}';
     }
 }

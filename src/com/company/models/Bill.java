@@ -8,8 +8,9 @@ public class Bill {
         this.driver = driver;
         this.sum = sum;
     }
+
     public void addSum(Integer sum){
-        this.sum+=sum;
+        this.sum += sum;
     }
 
     @Override
