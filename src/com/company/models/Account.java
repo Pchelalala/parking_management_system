@@ -10,6 +10,7 @@ public class Account {
     public Account(List<Car> cars, Integer price){
         setBills(cars, price);
     }
+
     private void setBills(List<Car> cars, Integer price){
         for (var item : cars) {
             var fondedBills = bills.stream().filter(billItem -> billItem.driver == item.driver).toList();
@@ -28,8 +29,8 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "bills = " + bills +
-                '}';
+        return "Account { " +
+                " bills = " + bills +
+                " }\n";
     }
 }

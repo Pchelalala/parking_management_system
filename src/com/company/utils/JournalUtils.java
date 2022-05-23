@@ -3,7 +3,6 @@ package com.company.utils;
 import com.company.models.Car;
 import com.company.models.JournalItem;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 

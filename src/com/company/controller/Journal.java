@@ -35,7 +35,7 @@ public class Journal {
     @Override
     public String toString() {
         return "Journal { " +
-                "journalItems = " + journalItems +
-                '}';
+                " journalItems = " + journalItems +
+                " }\n";
     }
 }

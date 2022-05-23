@@ -18,6 +18,6 @@ public class Bill {
         return "Bill{" +
                 "driver=" + driver +
                 ", sum=" + sum +
-                '}';
+                " }\n";
     }
 }

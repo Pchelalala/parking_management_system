@@ -16,8 +16,8 @@ public class ConsoleOutputStrategy {
     public void showFunctionality(){
         showFunctionalityItem(1, "show all cars");
         showFunctionalityItem(2, "get journal by date");
-        showFunctionalityItem(3, "get info of car");
-        showFunctionalityItem(4, "get info of driver");
+        showFunctionalityItem(3, "get car info");
+        showFunctionalityItem(4, "get driver info");
         showFunctionalityItem(5, "exit");
         showFunctionalityItem(6, "add driver");
         showFunctionalityItem(7, "add car");

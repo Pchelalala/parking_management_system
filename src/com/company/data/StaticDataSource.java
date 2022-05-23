@@ -2,7 +2,6 @@ package com.company.data;
 
 import com.company.models.Car;
 import com.company.models.Driver;
-
 import java.util.ArrayList;
 import java.util.List;
 

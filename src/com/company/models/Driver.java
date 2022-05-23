@@ -11,7 +11,7 @@ public class Driver {
     public String toString() {
         return "Driver { " +
                 " name = " + name + '\'' +
-                '}';
+                " }\n";
     }
 
     public String getName() {

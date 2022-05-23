@@ -26,6 +26,7 @@ public class CarStation {
 
         return account;
     }
+
     public void addCar(Car car){
         journal.addItem(car, true);
         car.setCarOnStation(true);

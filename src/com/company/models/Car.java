@@ -5,7 +5,6 @@ public class Car {
     String name;
     Boolean isCarOnStation;
 
-
     public Car(Driver driver, String name) {
         this.driver = driver;
         this.name = name;
@@ -37,10 +36,10 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "driver = " + driver +
-                ", name='" + name + '\'' +
-                ", isCarOnStation=" + isCarOnStation +
-                '}';
+        return "Car { " +
+                " driver = " + driver +
+                ", name =" + name + '\'' +
+                ", isCarOnStation = " + isCarOnStation +
+                " }\n";
     }
 }

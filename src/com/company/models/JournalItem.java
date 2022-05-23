@@ -39,9 +39,9 @@ public class JournalItem {
 
     @Override
     public String toString() {
-        return "JournalItem{" +
-                "date=" + date +
-                ", isEnter=" + isEnter +
-                '}';
+        return "JournalItem { " +
+                " date = " + date +
+                ", isEnter = " + isEnter +
+                " }\n";
     }
 }

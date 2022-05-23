@@ -6,10 +6,8 @@ import com.company.data.StaticDataSource;
 import com.company.models.Car;
 import com.company.models.Driver;
 import com.company.models.JournalItem;
-import com.company.utils.CarUtils;
 import com.company.utils.InputUtils;
 import com.company.utils.JournalUtils;
-
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -119,7 +117,6 @@ public class CarStationFacade {
         var driver =  StaticDataSource.drivers.stream().filter(item -> item.getName().equals(driverName)).findFirst();
 
         driver.ifPresent(value -> carStation.addCar(new Car(value, carName)));
-
     }
 
     public void task8() {
