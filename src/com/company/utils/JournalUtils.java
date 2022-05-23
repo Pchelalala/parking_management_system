@@ -9,7 +9,7 @@ import java.util.List;
 
 public class JournalUtils {
     public List<JournalItem> sortJournalItemsByCarName(List<JournalItem> journalItems){
-        Collections.sort(journalItems, Comparator.comparing(o -> o.getCar().getName()));
+        journalItems.sort(Comparator.comparing(o -> o.getCar().getName()));
         return journalItems;
     }
 
