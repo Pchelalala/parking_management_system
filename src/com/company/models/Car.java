@@ -38,8 +38,8 @@ public class Car {
     public String toString() {
         return "Car { " +
                 " driver = " + driver +
-                ", name =" + name + '\'' +
-                ", isCarOnStation = " + isCarOnStation +
+                " car name = " + name +
+                " isCarOnStation = " + isCarOnStation +
                 " }\n";
     }
 }

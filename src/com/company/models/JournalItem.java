@@ -41,7 +41,7 @@ public class JournalItem {
     public String toString() {
         return "JournalItem { " +
                 " date = " + date +
-                ", isEnter = " + isEnter +
+                "\n isEnter = " + isEnter +
                 " }\n";
     }
 }

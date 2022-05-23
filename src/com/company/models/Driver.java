@@ -9,8 +9,7 @@ public class Driver {
 
     @Override
     public String toString() {
-        return "Driver { " +
-                " name = " + name + '\'' +
+        return "Driver { name = " + name +
                 " }\n";
     }
 

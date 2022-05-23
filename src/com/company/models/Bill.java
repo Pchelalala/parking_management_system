@@ -15,9 +15,9 @@ public class Bill {
 
     @Override
     public String toString() {
-        return "Bill{" +
-                "driver=" + driver +
-                ", sum=" + sum +
+        return "Bill { " +
+                " driver = " + driver +
+                " sum = " + sum +
                 " }\n";
     }
 }

@@ -114,7 +114,8 @@ public class CarStationFacade {
         consoleOutputStrategy.showDrivers(StaticDataSource.drivers);
 
         var driverName = inputUtils.readString();
-        var driver =  StaticDataSource.drivers.stream().filter(item -> item.getName().equals(driverName)).findFirst();
+        var driver =  StaticDataSource.drivers.stream().filter(item ->
+                item.getName().equals(driverName)).findFirst();
 
         driver.ifPresent(value -> carStation.addCar(new Car(value, carName)));
     }
@@ -123,7 +124,8 @@ public class CarStationFacade {
         consoleOutputStrategy.showTask8Requirements();
 
         var carName = inputUtils.readString();
-        var car =  carStation.getCars().stream().filter(item -> item.getName().equals(carName)).findFirst();
+        var car =  carStation.getCars().stream().filter(item ->
+                item.getName().equals(carName)).findFirst();
 
         car.ifPresent(value -> carStation.removeCar(value));
     }
