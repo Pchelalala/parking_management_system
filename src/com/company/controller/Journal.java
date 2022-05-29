@@ -33,6 +33,18 @@ public class Journal {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Journal journal)) return false;
+        return journalItems.equals(journal.journalItems);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(journalItems);
+    }
+
+    @Override
     public String toString() {
         return "Journal { " +
                 " journalItems = " + journalItems +

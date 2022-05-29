@@ -13,6 +13,22 @@ public class Bill {
         this.sum += sum;
     }
 
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    public Integer getSum() {
+        return sum;
+    }
+
+    public void setSum(Integer sum) {
+        this.sum = sum;
+    }
+
     @Override
     public String toString() {
         return "Bill { " +

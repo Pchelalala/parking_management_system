@@ -1,6 +1,7 @@
 package com.company.models;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class JournalItem {
     Car car;
@@ -35,6 +36,19 @@ public class JournalItem {
 
     public void setCar(Car car) {
         this.car = car;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JournalItem that = (JournalItem) o;
+        return Objects.equals(car, that.car) && Objects.equals(date, that.date) && Objects.equals(isEnter, that.isEnter);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(car, date, isEnter);
     }
 
     @Override

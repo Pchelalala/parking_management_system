@@ -11,6 +11,14 @@ public class Account {
         setBills(cars, price);
     }
 
+    public List<Bill> getBills() {
+        return bills;
+    }
+
+    public void setBills(List<Bill> bills) {
+        this.bills = bills;
+    }
+
     private void setBills(List<Car> cars, Integer price){
         for (var item : cars) {
             var fondedBills = bills.stream().filter(billItem -> billItem.driver == item.driver).toList();
