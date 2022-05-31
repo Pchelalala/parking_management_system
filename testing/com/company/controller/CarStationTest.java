@@ -4,11 +4,7 @@ import com.company.models.Car;
 import com.company.models.Driver;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-import java.util.stream.Stream;
-
-import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarStationTest {
@@ -19,6 +15,7 @@ class CarStationTest {
         var cars = testCarProvider();
         carStation = new CarStation(cars);
     }
+
     public static List<Car> testCarProvider() {
         var drivers = testDriverProvider();
 
@@ -34,6 +31,7 @@ class CarStationTest {
 
         );
     }
+
     public static List<Driver> testDriverProvider() {
         return List.of(
                 new Driver("Vasya"),
@@ -42,6 +40,7 @@ class CarStationTest {
                 new Driver("Yehor")
         );
     }
+
     @Test
     void calculateAccount() {
         var account = carStation.calculateAccount();

@@ -8,10 +8,13 @@ public class JournalItem {
     Date date;
     Boolean isEnter;
 
-    public JournalItem(Boolean isEnter, Car car) {
+    public JournalItem(Boolean isEnter, Car car, Date date) {
         this.car = car;
-        this.date = new Date();
+        this.date = date;
         this.isEnter = isEnter;
+    }
+    public JournalItem(Boolean isEnter, Car car) {
+        this(isEnter, car, new Date());
     }
 
     public Date getDate() {
@@ -53,9 +56,10 @@ public class JournalItem {
 
     @Override
     public String toString() {
-        return "JournalItem { " +
-                " date = " + date +
-                "\n isEnter = " + isEnter +
-                " }\n";
+        return "JournalItem{" +
+                "car=" + car +
+                ", date=" + date +
+                ", isEnter=" + isEnter +
+                '}';
     }
 }

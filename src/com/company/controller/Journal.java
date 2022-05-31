@@ -6,7 +6,14 @@ import java.util.*;
 
 public class Journal {
     List<JournalItem> journalItems = new ArrayList<>();
+    public Journal(){}
 
+    public Journal(List<Car> cars){
+        for (var item :
+                cars) {
+            addItem(item, true);
+        }
+    }
     public void addItem(Car car, Boolean isEnter){
         journalItems.add(new JournalItem(isEnter, car));
     }

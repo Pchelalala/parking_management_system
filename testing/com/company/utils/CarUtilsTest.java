@@ -3,48 +3,22 @@ package com.company.utils;
 import com.company.models.Car;
 import com.company.models.Driver;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarUtilsTest {
     static CarUtils carUtils;
+    private static List<Driver> drivers;
     @BeforeAll
     public static void init(){
         carUtils = new CarUtils();
-    }
-    public static List<Car>  testCarProvider() {
-        var drivers = testDriverProvider();
-
-        return List.of(
-                new Car(drivers.get(0), "1"),
-                new Car(drivers.get(1), "2")
-        );
+        drivers = testDriverProvider();
     }
 
-    public static List<Car> testSortedCarByNameProvider() {
-        var drivers = testDriverProvider();
-
-        return List.of(
-                new Car(drivers.get(0), "1"),
-                new Car(drivers.get(1), "2")
-             );
-    }
-    public static List<Car> testSortedCarByDriverNameProvider() {
-        var drivers = testDriverProvider();
-
-        return List.of(
-                new Car(drivers.get(1), "2"),
-                new Car(drivers.get(0), "1")
-        );
-    }
     public static List<Driver> testDriverProvider() {
         return List.of(
                 new Driver("Vasya"),
@@ -53,22 +27,56 @@ class CarUtilsTest {
                 new Driver("Yehor")
         );
     }
-    @Test
-    void sortCarsByName() {
-        var cars = testCarProvider();
+
+    public static Stream<List<Car>> testCarProvider() {
+        return Stream.of(
+                List.of(
+                        new Car(drivers.get(0), "1"),
+                        new Car(drivers.get(1), "2")
+                )
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("testCarProvider")
+    void sortCarsByName(List<Car> cars) {
         var sorted = carUtils.sortCarsByName(new ArrayList<>(cars));
         assertEquals(testSortedCarByNameProvider(), sorted);
     }
 
-    @Test
-    void sortCarsByDriverName() {
-        var cars = testCarProvider();
+    public static List<Car> testSortedCarByNameProvider() {
+        return List.of(
+                new Car(drivers.get(0), "1"),
+                new Car(drivers.get(1), "2")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("testCarProvider")
+    void sortCarsByDriverName(List<Car> cars) {
         var sorted = carUtils.sortCarsByDriverName(new ArrayList<>(cars));
         assertEquals(testSortedCarByDriverNameProvider(), sorted);
     }
 
-    @Test
-    void getAllCarsOnStation() {
+    public static List<Car> testSortedCarByDriverNameProvider() {
+        return List.of(
+                new Car(drivers.get(1), "2"),
+                new Car(drivers.get(0), "1")
+        );
+    }
 
+    @ParameterizedTest
+    @MethodSource("testCarProvider")
+    void getAllCarsOnStation(List<Car> cars) {
+        var result = carUtils.getAllCarsOnStation(cars);
+
+        assertEquals(testCarOnStationProvider(), result);
+    }
+
+    public static List<Car> testCarOnStationProvider() {
+        return List.of(
+                new Car(drivers.get(0), "1"),
+                new Car(drivers.get(1), "2")
+        );
     }
 }

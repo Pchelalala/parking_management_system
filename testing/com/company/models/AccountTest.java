@@ -1,9 +1,7 @@
 package com.company.models;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
@@ -27,6 +25,7 @@ class AccountTest {
 
         );
     }
+
     public static List<Driver> testDriverProvider() {
         return List.of(
                 new Driver("Vasya"),
@@ -35,10 +34,10 @@ class AccountTest {
                 new Driver("Yehor")
         );
     }
+
     @Test
     void getBill() {
         var bills = account.getBills();
         assertEquals(account.getBills(), bills);
-
     }
 }

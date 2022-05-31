@@ -4,29 +4,21 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
+    private static Driver driver = new Driver("driver");
+    private static Car car = new Car(driver, "car");
 
     @Test
     void getDriver() {
-
-    }
-
-    @Test
-    void setDriver() {
-
+        assertEquals(driver, car.getDriver());
     }
 
     @Test
     void getName() {
-
-    }
-
-    @Test
-    void setName() {
-
+        assertEquals(driver, car.getName());
     }
 
     @Test
     void getCarOnStation() {
-
+        assertEquals(true, car.getCarOnStation());
     }
 }
