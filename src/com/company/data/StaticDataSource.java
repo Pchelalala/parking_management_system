@@ -20,6 +20,7 @@ public class StaticDataSource {
         addCarToDataSource("4", drivers.get(1));
         addCarToDataSource("5", drivers.get(1));
         addCarToDataSource("6", drivers.get(2));
+
     }
 
     public static void addDriverToDataSource(String name){

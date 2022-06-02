@@ -1,6 +1,9 @@
 package com.company.facades;
 
 import com.company.ConsoleOutputStrategy;
+import com.company.DB.CarJDBCDao;
+import com.company.DB.DBUtils;
+import com.company.DB.DriverJDBCDao;
 import com.company.controller.CarStation;
 import com.company.data.StaticDataSource;
 import com.company.models.Car;
@@ -8,21 +11,28 @@ import com.company.models.Driver;
 import com.company.models.JournalItem;
 import com.company.utils.InputUtils;
 import com.company.utils.JournalUtils;
+
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarStationFacade {
     static boolean isUserIn = true;
+    DriverJDBCDao driverJDBCDao;
+    CarJDBCDao carJDBCDao;
+
     ConsoleOutputStrategy consoleOutputStrategy;
     JournalUtils journalUtils;
     InputUtils inputUtils;
     CarStation carStation;
 
-    public CarStationFacade() {
+    public CarStationFacade() throws SQLException {
+        driverJDBCDao = new DriverJDBCDao();
+        carJDBCDao = new CarJDBCDao();
         consoleOutputStrategy = new ConsoleOutputStrategy();
         inputUtils = new InputUtils();
-        carStation = new CarStation(StaticDataSource.cars);
+        carStation = new CarStation(carJDBCDao.getAll());
         journalUtils = new JournalUtils();
     }
 
@@ -101,9 +111,11 @@ public class CarStationFacade {
     public void task6() {
         consoleOutputStrategy.showTask6Requirements();
 
+        consoleOutputStrategy.showDrivers(driverJDBCDao.getAll());
+
         var driverName = inputUtils.readString();
 
-        StaticDataSource.drivers.add(new Driver(driverName));
+        driverJDBCDao.insert(new Driver(driverName));
     }
 
     public void task7() {
@@ -111,10 +123,10 @@ public class CarStationFacade {
 
         var carName = inputUtils.readString();
 
-        consoleOutputStrategy.showDrivers(StaticDataSource.drivers);
+        consoleOutputStrategy.showDrivers(driverJDBCDao.getAll());
 
         var driverName = inputUtils.readString();
-        var driver =  StaticDataSource.drivers.stream().filter(item ->
+        var driver =  driverJDBCDao.getAll().stream().filter(item ->
                 item.getName().equals(driverName)).findFirst();
 
         driver.ifPresent(value -> carStation.addCar(new Car(value, carName)));

@@ -3,9 +3,14 @@ package com.company.models;
 import java.util.Objects;
 
 public class Car {
+    Integer id;
     Driver driver;
     String name;
     Boolean isCarOnStation;
+
+    public Car() {
+    }
+
     public Car(Driver driver, String name) {
         this.driver = driver;
         this.name = name;
@@ -26,6 +31,14 @@ public class Car {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Boolean getCarOnStation() {
@@ -50,13 +63,13 @@ public class Car {
     }
 
 
-
     @Override
     public String toString() {
-        return "Car { " +
-                " driver = " + driver +
-                " car name = " + name +
-                " isCarOnStation = " + isCarOnStation +
-                " }\n";
+        return "Car{" +
+                "id=" + id +
+                ", driver=" + driver +
+                ", name='" + name + '\'' +
+                ", isCarOnStation=" + isCarOnStation +
+                '}';
     }
 }
